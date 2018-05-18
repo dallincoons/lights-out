@@ -16,19 +16,21 @@ class Graph {
         this.buildGraph(rows, columns, verticesCount);
     }
 
-    buildGraph(rows, columns, verticesCount) {
+    buildGraph(rows, columns, totalVertices) {
         for (let i = 0; i < rows; i++) {
             this.nodes[i] = [];
-            let currentTotal = i * columns;
-            let remaining = verticesCount - currentTotal;
+            let placedVerticesTotal = i * columns;
+            let remainingVertices = totalVertices - placedVerticesTotal;
             let totalLeft = columns;
-            if (remaining < columns) {
-                totalLeft = remaining;
+
+            if (remainingVertices < columns) {
+                totalLeft = remainingVertices;
             }
             for (let j = 0; j < totalLeft; j++) {
-                this.nodes[i][j] = Math.floor(Math.random() * Math.floor(2));
+                this.nodes[i][j] = [{row: i, column:j}, Math.floor(Math.random() * Math.floor(2))];
             }
         }
+
     }
 }
 
