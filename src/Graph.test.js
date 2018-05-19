@@ -21,3 +21,9 @@ it('renders grid with 10 elements and 2 columns', () => {
     expect(graph.nodes.length).toBe(5);
     expect(graph.nodes[0].length).toBe(2);
 });
+
+it('gets list of vertices', () => {
+    let graph = new Graph(2, 2);
+
+    console.log(graph.listVertices());
+});

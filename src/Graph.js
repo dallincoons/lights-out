@@ -9,6 +9,7 @@ class Graph {
         this.verticesCount = verticesCount;
         this.edgesCount = 0;
         this.nodes  = [];
+        this.flatNodes = [];
 
         const columns = colMax;
         const rows = Math.ceil(verticesCount / columns);
@@ -27,10 +28,14 @@ class Graph {
                 totalLeft = remainingVertices;
             }
             for (let j = 0; j < totalLeft; j++) {
-                this.nodes[i][j] = [{row: i, column:j}, Math.floor(Math.random() * Math.floor(2))];
+                this.nodes[i][j] = {'coordinates' : {row: i, column:j}, 'isOn' : Math.random() >= 0.5};
+                this.flatNodes.push(this.nodes[i][j]);
             }
         }
+    }
 
+    listVertices() {
+        return this.flatNodes;
     }
 }
 
