@@ -49,9 +49,16 @@ class App extends Component {
     render() {
         return (
           <div className="App">
-              {this.vertices.map(v => (
-                  <Node key={JSON.stringify(v.coordinates)} coordinates={v.coordinates} isOn={this.state.nodes[this.stateKey(v.coordinates)]} toggleNode={this.toggleNode}/>
-              ))}
+              <div className="play-area">
+                  {this.vertices.map(v => (
+                      <Node
+                        key={JSON.stringify(v.coordinates)}
+                        coordinates={v.coordinates}
+                        isOn={this.state.nodes[this.stateKey(v.coordinates)]}
+                        toggleNode={this.toggleNode}
+                      />
+                  ))}
+              </div>
           </div>
         );
   }
