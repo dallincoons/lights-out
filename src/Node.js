@@ -6,8 +6,11 @@ class Node extends Component {
     };
 
     render() {
+        let classNames = this.props.isOn ? 'isOn' : 'isOff';
+        classNames += ' game-node';
+        
         return (
-            <div className={this.props.isOn ? 'isOn' : 'isOff'} onClick={this.toggleNode}>
+            <div className={classNames} onClick={this.toggleNode}>
             </div>
         )
     }
